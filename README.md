@@ -45,6 +45,25 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Makefile
+
+```bash
+# mysql container run
+make up
+
+# mysql container down
+make down
+
+# login mysql container
+make login
+
+# login mysql
+make login-db
+
+# remove mysql container, image and volumes
+make clean
+```
+
 ## Test
 
 ```bash
