@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0-oracle
+    restart: always
+    container_name: nest_tutorial
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - '3306:3306'
+volumes:
+  db_data:
