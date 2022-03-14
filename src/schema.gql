@@ -3,12 +3,18 @@
 # ------------------------------------------------------
 
 type Author {
-  firstName: String!
+  firstName: String
   id: Int!
-  lastName: String!
-  like: Int!
+  lastName: String
+  posts: [Post!]!
+}
+
+type Post {
+  id: Int!
+  title: String!
+  votes: Int
 }
 
 type Query {
-  authors: [Author!]!
+  author(id: Int!): Author
 }

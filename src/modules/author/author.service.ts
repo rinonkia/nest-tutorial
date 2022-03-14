@@ -1,24 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { Author } from 'src/domains/author.domain';
+import { AuthorRepository } from './author.repository';
 
 @Injectable()
 export class AuthorService {
-  private authors: Author[] = [
-    {
-      id: 1,
-      firstName: 'Ichiro',
-      lastName: 'Suzuki',
-      like: 0,
-    },
-    {
-      id: 2,
-      firstName: 'Hanako',
-      lastName: 'Yamada',
-      like: 0,
-    },
-  ];
+  constructor(private readonly authorRepository: AuthorRepository) {}
 
-  findAll(): Author[] {
-    return this.authors;
+  async findByIdAndPosts(id: number) {
+    return await this.authorRepository.findByIdAndPosts(id);
   }
 }
