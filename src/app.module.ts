@@ -5,6 +5,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PrismaModule } from './lib/prisma/prisma.module';
+import { PostResolver } from './modules/post/post.resolver';
+import { PostModule } from './modules/post/post.module';
 
 @Module({
   imports: [
@@ -12,10 +14,14 @@ import { PrismaModule } from './lib/prisma/prisma.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
+      subscriptions: {
+        'graphql-ws': true,
+      },
     }),
     UserModule,
     AuthorModule,
     PrismaModule,
+    PostModule,
   ],
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { Args, Int, Query, Resolver } from '@nestjs/graphql';
+import { Args, Int, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { Author } from 'src/domains/author.domain';
 import { AuthorService } from './author.service';
 
