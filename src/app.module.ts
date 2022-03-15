@@ -5,7 +5,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PrismaModule } from './lib/prisma/prisma.module';
-import { PostResolver } from './modules/post/post.resolver';
 import { PostModule } from './modules/post/post.module';
 
 @Module({

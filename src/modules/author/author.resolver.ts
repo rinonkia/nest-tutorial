@@ -11,4 +11,13 @@ export class AuthorResolver {
     const author = await this.authorService.findByIdAndPosts(id);
     return author ? new Author(author) : null;
   }
+
+  // mapが利用できなくてエラーが出る
+  // @Query(() => [Author])
+  // async authors() {
+  //   const authors = await this.authorService.findAll();
+  //   console.log(typeof authors);
+  //   console.log(authors.entries);
+  //   return authors.map((author) => new Author(author));
+  // }
 }

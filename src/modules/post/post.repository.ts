@@ -24,4 +24,10 @@ export class PostRepository {
       },
     });
   }
+
+  async findAllByAuthorId(authorId: number): Promise<Post[]> {
+    return await this.prisma.post.findMany({
+      where: { id: authorId },
+    });
+  }
 }

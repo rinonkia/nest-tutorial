@@ -16,4 +16,8 @@ export class AuthorRepository {
       },
     });
   }
+
+  async findAll(): Promise<Author[]> {
+    return await this.prisma.author.findMany();
+  }
 }

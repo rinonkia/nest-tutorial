@@ -8,4 +8,8 @@ export class PostService {
   async upVoteById(postId: number) {
     return this.postRepository.upVotePost(postId);
   }
+
+  async findAllByAuthorId(authorId: number) {
+    return await this.postRepository.findAllByAuthorId(authorId);
+  }
 }
