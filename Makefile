@@ -10,5 +10,8 @@ login:
 login-db:
 	docker compose exec db mysql -u tester -p nest_tutorial
 
+prisma-migrate:
+	docker compose run --rm nestjs npx prisma migrate dev
+
 clean:
 	docker compose down --rmi all --volumes
