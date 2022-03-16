@@ -90,3 +90,18 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+```mermaid
+sequenceDiagram
+  participant Next.js
+  participant NestJS
+  participant FirebaseAuth
+	participant Firestore
+
+	Note Right of Next.js: Post: email, password
+	Next.js ->> NestJS: request
+  NestJS ->> FirebaseAuth: 認証/認可用ユーザー追加
+	FirebaseAuth -->> NestJS: JWT返却
+　　　　NestJS ->> Firestore: ユーザーアカウント作成
+  NestJS -->> Next.js: response JWT
+```
